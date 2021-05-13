@@ -25,8 +25,10 @@ export default function Home(props: { initialData: RickAndMortyAPIData }) {
 
   return (
     <main>
-      <h1>Home</h1>
-      <p>Hello there! Welcome to Home.</p>
+      <div className="pb-5">
+        <h1>Home</h1>
+        <p>Hello there! Welcome to Home.</p>
+      </div>
       <div className="space-y-3">
         {data &&
           data.results

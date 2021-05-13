@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { motion } from 'framer-motion'
 
 export default function NavBar(props: {
   items: { label: string; path: string }[]
 }) {
   return (
     <nav>
-      <ul className="list-none flex w-full justify-around items-center px-4 py-2 text-blue-500 font-bold">
+      <ul className="list-none flex w-full justify-around items-center px-5 py-3 text-green-800 font-bold text-2xl">
         {props.items.map(({ label, path }, key) => {
           return <NavItem key={key} label={label} path={path} />
         })}
@@ -19,12 +20,16 @@ function NavItem(props: { label: string; path: string }) {
   const router = useRouter()
   const isActive = router.asPath === props.path
   return (
-    <li>
+    <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
       <Link href={props.path}>
-        <a className={`${isActive ? 'font-extrabold underline' : null}`}>
+        <a
+          className={`rounded py-2 px-5 bg-green-200 ${
+            isActive ? 'text-green-900' : 'text-green-700'
+          }`}
+        >
           {props.label}
         </a>
       </Link>
-    </li>
+    </motion.li>
   )
 }
