@@ -1,8 +1,11 @@
+import Header from '../../components/Header'
+import ContentWrapper from '../../components/ContentWrapper'
+
 export default function About() {
   return (
-    <main>
-      <h1>About</h1>
+    <ContentWrapper>
+      <Header>About</Header>
       <p>This is the page where I tell you a bit about myself</p>
-    </main>
+    </ContentWrapper>
   )
 }

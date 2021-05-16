@@ -14,7 +14,9 @@ export default function Layout({
   return (
     <div className="min-h-screen bg-green-50 flex flex-col justify-between items-center">
       <header className="flex-grow-0 flex-shrink-0 w-full">{menu}</header>
-      <main className="mx-auto max-w-3xl py-12 px-6 flex-grow">{children}</main>
+      <div className="mx-auto container py-4 px-1 sm:py-12 sm:px-6 flex-grow">
+        {children}
+      </div>
       <footer className="flex-grow-0 flex-shrink-0 h-8">{footer}</footer>
     </div>
   )

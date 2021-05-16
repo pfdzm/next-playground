@@ -3,6 +3,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import NavBar from '../components/layout/NavBar'
 import '../styles/globals.css'
+import {AnimateSharedLayout} from 'framer-motion'
 
 const menuItems = [
   { label: 'Home', path: '/' },
@@ -12,9 +13,11 @@ const menuItems = [
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout menu={<NavBar items={menuItems} />}>
-      <Component {...pageProps} />
-    </Layout>
+    <AnimateSharedLayout>
+      <Layout menu={<NavBar items={menuItems} />}>
+        <Component {...pageProps} />
+      </Layout>
+    </AnimateSharedLayout>
   )
 }
 

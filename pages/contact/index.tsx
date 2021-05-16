@@ -1,10 +1,12 @@
-import React from 'react'
+import * as React from 'react'
+import ContentWrapper from '../../components/ContentWrapper'
+import Header from '../../components/Header'
 
 export default function Contact() {
   const [name, setName] = React.useState('')
   return (
-    <main>
-      <h1>Contact</h1>
+    <ContentWrapper>
+      <Header>Contact</Header>
       <form
         id="contact-form"
         onSubmit={handleSubmit}
@@ -30,7 +32,7 @@ export default function Contact() {
           Submit
         </button>
       </form>
-    </main>
+    </ContentWrapper>
   )
 }
 

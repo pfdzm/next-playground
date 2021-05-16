@@ -2,6 +2,8 @@ import { GetStaticProps } from 'next'
 import useSWR from 'swr'
 import CharacterWidget from '../components/CharacterWidget'
 import { RickAndMortyAPIData } from '../types'
+import Header from '../components/Header'
+import ContentWrapper from '../components/ContentWrapper'
 
 const API_ENDPOINT = 'https://rickandmortyapi.com/api/character'
 
@@ -24,19 +26,20 @@ export default function Home(props: { initialData: RickAndMortyAPIData }) {
   })
 
   return (
-    <main>
+    <ContentWrapper>
       <div className="pb-5">
-        <h1>Home</h1>
+        <Header>Home</Header>
         <p>Hello there! Welcome to Home.</p>
       </div>
-      <div className="space-y-3">
-        {data &&
-          data.results
-            .slice(0, 5)
-            .map((char, key) => <CharacterWidget {...char} key={key} />)}
-      </div>
+      {data && (
+        <div className="space-y-3">
+          {data.results.slice(0, 5).map((char, key) => (
+            <CharacterWidget {...char} key={key} />
+          ))}
+        </div>
+      )}
       {error && <div className="px-6 py-3 bg-red-400">{error.message}</div>}
-    </main>
+    </ContentWrapper>
   )
 }
 

@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { motion } from 'framer-motion'
 
 export default function NavBar(props: {
   items: { label: string; path: string }[]
@@ -20,16 +19,16 @@ function NavItem(props: { label: string; path: string }) {
   const router = useRouter()
   const isActive = router.asPath === props.path
   return (
-    <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+    <li>
       <Link href={props.path}>
         <a
-          className={`rounded py-2 px-5 bg-green-200 ${
-            isActive ? 'text-green-900' : 'text-green-700'
+          className={`rounded py-2 px-5 hover:bg-green-100 text-green-800 ${
+            isActive ? 'bg-green-100' : ''
           }`}
         >
           {props.label}
         </a>
       </Link>
-    </motion.li>
+    </li>
   )
 }
